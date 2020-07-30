@@ -85,7 +85,7 @@ None
 
 ## Earned Badge Bulk Deletion
 
-This endpoint allows you to delete all earned badge assignments for a given badge. Note that there may be a slight delay while the deletion processes, if there is a large number of assignments being deleted.
+This endpoint allows you to delete all earned badge assignments for a given badge. Note that there may be a slight delay while the deletion processes if a large number of assignments are being deleted.
 
 > Request:
 
