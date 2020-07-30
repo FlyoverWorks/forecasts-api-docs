@@ -548,6 +548,21 @@
 
 <p>None</p>
 
+<h2 id="earned-badge-bulk-deletion">Earned Badge Bulk Deletion</h2>
+
+<p>This endpoint allows you to delete all earned badge assignments for a given badge. Note that there may be a slight delay while the deletion processes, if there is a large number of assignments being deleted.</p>
+
+<blockquote>
+<p>Request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"https://yoursite.cultivateforecasts.com/api/v1/earned_badges/bulk_deletions?badge_id=123"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer b95b4f848cd226e55b7a42f6a8e8669350730270f5a91d64b6c70328b0156d75"</span> <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span>
+</code></pre>
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://yoursite.cultivateforecasts.com/api/v1/earned_badges/bulk_deletions?badge_id=123</code></p>
+
 <h2 id="earned-badges-list">Earned Badges List</h2>
 
 <p>This endpoint is only accessible to administrators.</p>
