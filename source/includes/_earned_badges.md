@@ -83,6 +83,22 @@ curl -X "DELETE" "https://yoursite.cultivateforecasts.com/api/v1/earned_badges/3
 
 None
 
+## Earned Badge Bulk Deletion
+
+This endpoint allows you to delete all earned badge assignments for a given badge. Note that there may be a slight delay while the deletion processes, if there is a large number of assignments being deleted.
+
+> Request:
+
+```shell
+curl -X "POST" "https://yoursite.cultivateforecasts.com/api/v1/earned_badges/bulk_deletions?badge_id=123" \
+  -H "Authorization: Bearer b95b4f848cd226e55b7a42f6a8e8669350730270f5a91d64b6c70328b0156d75" \
+  -H "Accept: application/json"
+```
+
+### HTTP Request
+
+`POST https://yoursite.cultivateforecasts.com/api/v1/earned_badges/bulk_deletions?badge_id=123`
+
 
 
 ## Earned Badges List
