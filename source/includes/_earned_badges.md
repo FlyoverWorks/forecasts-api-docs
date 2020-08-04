@@ -146,6 +146,7 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/earned_badges" \
 Parameter | Default | Description
 --------- | ------- | -----------
 page | 0 | Pagination page number
+badge_id | none | Filter the list to only return records for a given badge
 
 ### Attribute Descriptions
 
