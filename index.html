@@ -461,6 +461,207 @@
 </tr>
 </tbody></table>
 
+          <h1 id="comments">Comments</h1>
+
+<h2 id="comments-list">Comments List</h2>
+
+<p>Shows a list of comments that exist on the site.</p>
+
+<blockquote>
+<p>Request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://yoursite.cultivateforecasts.com/api/v1/comments"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer b95b4f848cd226e55b7a42f6a8e8669350730270f5a91d64b6c70328b0156d75"</span>
+</code></pre>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">439</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commenter_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ident::Membership"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anonymous comment"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commentable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">563</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commentable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forecast::Question"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"children_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-13T16:29:58.124Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-13T16:29:58.124Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"anonymous"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commentable_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"question-name-8"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">436</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commenter_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ident::Membership"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comment 2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commentable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">563</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commentable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forecast::Question"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"children_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-13T16:29:58.051Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-13T16:29:58.051Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"anonymous"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"membership_username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TheTank17"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"membership_avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://test-1.lvh.me/assets/default_theme/v18/ident/default_avatars/level-1-1-2585542198c786697ecae8838813bd0a558e8b40bee4f21676d05e014d3ccc52.png"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commenter_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1207</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commentable_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"question-name-8"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">435</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commenter_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ident::Membership"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comment 1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commentable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">563</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commentable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forecast::Question"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"children_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-13T16:29:58.030Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-13T16:29:58.030Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"anonymous"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"membership_username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TheTank16"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"membership_avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://test-1.lvh.me/assets/default_theme/v18/ident/default_avatars/level-1-1-2585542198c786697ecae8838813bd0a558e8b40bee4f21676d05e014d3ccc52.png"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commenter_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1206</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commentable_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"question-name-8"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://yoursite.cultivateforecasts.com/api/v1/comments</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>0</td>
+<td>Pagination page number</td>
+</tr>
+<tr>
+<td>created_before</td>
+<td>none</td>
+<td>Returns only history records created before the passed date. Date should be in iso8601 format (e.g. 2015-08-23T15:43:11-05:00)</td>
+</tr>
+<tr>
+<td>created_after</td>
+<td>none</td>
+<td>Returns only history records created after the passed date. Date should be in iso8601 format (e.g. 2015-08-23T15:43:11-05:00)</td>
+</tr>
+<tr>
+<td>updated_before</td>
+<td>none</td>
+<td>Returns only history records updated before the passed date. Date should be in iso8601 format (e.g. 2015-08-23T15:43:11-05:00)</td>
+</tr>
+<tr>
+<td>updated_after</td>
+<td>none</td>
+<td>Returns only history records updated after the passed date. Date should be in iso8601 format (e.g. 2015-08-23T15:43:11-05:00)</td>
+</tr>
+<tr>
+<td>include_replies</td>
+<td>false</td>
+<td>Whether to include comment replies</td>
+</tr>
+<tr>
+<td>commentable_id</td>
+<td>none</td>
+<td>The ID of the resource to scope the list of comments to. E.g. a question ID, if you want only comments from that question</td>
+</tr>
+<tr>
+<td>commentable_type</td>
+<td>none</td>
+<td>If commentable_id is provided, this must be provided. Valid options: <code class="prettyprint">Forecast::Question</code>, <code class="prettyprint">Ident::Site</code>, and <code class="prettyprint">Cms::Post</code></td>
+</tr>
+</tbody></table>
+
+<h3 id="attribute-descriptions">Attribute Descriptions</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>The id of the comment</td>
+</tr>
+<tr>
+<td>commenter_type</td>
+<td>string</td>
+<td>The type of resource that created the comment</td>
+</tr>
+<tr>
+<td>content</td>
+<td>string</td>
+<td>The comment text</td>
+</tr>
+<tr>
+<td>commentable_id</td>
+<td>integer</td>
+<td>The ID of the resource where this comment was made (e.g. a question or a blog post)</td>
+</tr>
+<tr>
+<td>commentable_type</td>
+<td>string</td>
+<td>The type of resource where this comment was made (e.g. a question or a blog post)</td>
+</tr>
+<tr>
+<td>commentable_name</td>
+<td>string</td>
+<td>The name of the resource where this comment was made (e.g. the question&rsquo;s text or blog post&rsquo;s title)</td>
+</tr>
+<tr>
+<td>children_count</td>
+<td>integer</td>
+<td>The number of replies that have been made to this comment</td>
+</tr>
+<tr>
+<td>parent_id</td>
+<td>integer</td>
+<td>If this was a reply, the ID of the comment it was replying to</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>The creation timestamp</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>datetime</td>
+<td>The timestamp of when this comment was last updated</td>
+</tr>
+<tr>
+<td>anonymous</td>
+<td>boolean</td>
+<td>Whether this comment was made anonymously</td>
+</tr>
+<tr>
+<td>membership_username</td>
+<td>string</td>
+<td>The username of the user who created the comment</td>
+</tr>
+<tr>
+<td>membership_avatar_url</td>
+<td>string</td>
+<td>The URL of the user&rsquo;s avatar image</td>
+</tr>
+<tr>
+<td>commenter_id</td>
+<td>integer</td>
+<td>The ID of the membership/user who made the comment</td>
+</tr>
+</tbody></table>
+
           <h1 id="earned-badges">Earned Badges</h1>
 
 <h2 id="earned-badge-creation">Earned Badge Creation</h2>
