@@ -12,6 +12,7 @@ includes:
 - push_apis
 - badges
 - clarifications
+- comments
 - earned_badges
 - memberships
 - prediction_sets
