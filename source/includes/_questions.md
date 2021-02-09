@@ -211,7 +211,7 @@ resolved | boolean | Whether or not this question has been resolved
 resolution_notes | array | Any notes/information provided by an admin describing the resolution of the question and any data sources used.
 use_ordinal_scoring | boolean | Whether or not this question uses ordinal scoring for calculating Brier scores
 clarifications | array | An array of clarifications issued for the question. Used to clarify things like resolution criteria for the question.
-state | string | The current state of the question. Options include: `active`, `ended`, `pending`, `refunded`, `resolved`, `voided`
+state | string | The current state of the question. Options enumerated in [question states](#question-states)
 scoring_start_time | datetime | The time at which scoring starts for this question.
 scoring_end_time | datetime | The time at which scoring ends for this question.
 
@@ -238,6 +238,21 @@ resolved_at | datetime | The date & time that this answer was resolved
 resolved_by_id | integer | The memebership_id of the membership who resolved this answer
 correctness_known_at | datetime | The date & time that the correctness of this answer was known. If an administrator sets this value when resolving the answer, all forecasts made after it will be invalidated.
 type | string | The internal answer type (e.g. prediction market stock, opinion pool answer)
+
+
+### Question States
+
+State | Description
+----- | -----------
+active | Currently open for forecasting
+rejected | An admin rejected the suggested question. It won't be published for forecasting.
+voided | The question was published for forecasting, but subsequently voided due to unforeseen issues with the question. It will not be scored or resolved.
+refunded | Only applicable to prediction market-type questions. Roughly the same as `voided`, but all trades were refunded.
+resolved | The question has ended, been judged, and scored (or is in the process of scoring).
+pending | An admin created the question, but has not yet published it.
+ended | The question's `ends_at` timestamp has passed, but it has not yet been resolved.
+
+
 
 ## Questions Creation and Updating
 
