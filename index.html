@@ -2023,7 +2023,7 @@
 <tr>
 <td>state</td>
 <td>string</td>
-<td>The current state of the question. Options include: <code class="prettyprint">active</code>, <code class="prettyprint">ended</code>, <code class="prettyprint">pending</code>, <code class="prettyprint">refunded</code>, <code class="prettyprint">resolved</code>, <code class="prettyprint">voided</code></td>
+<td>The current state of the question. Options enumerated in <a href="#question-states">question states</a></td>
 </tr>
 <tr>
 <td>scoring_start_time</td>
@@ -2140,6 +2140,44 @@
 <td>type</td>
 <td>string</td>
 <td>The internal answer type (e.g. prediction market stock, opinion pool answer)</td>
+</tr>
+</tbody></table>
+
+<h3 id="question-states">Question States</h3>
+
+<table><thead>
+<tr>
+<th>State</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>active</td>
+<td>Currently open for forecasting</td>
+</tr>
+<tr>
+<td>rejected</td>
+<td>An admin rejected the suggested question. It won&rsquo;t be published for forecasting.</td>
+</tr>
+<tr>
+<td>voided</td>
+<td>The question was published for forecasting, but subsequently voided due to unforeseen issues with the question. It will not be scored or resolved.</td>
+</tr>
+<tr>
+<td>refunded</td>
+<td>Only applicable to prediction market-type questions. Roughly the same as <code class="prettyprint">voided</code>, but all trades were refunded.</td>
+</tr>
+<tr>
+<td>resolved</td>
+<td>The question has ended, been judged, and scored (or is in the process of scoring).</td>
+</tr>
+<tr>
+<td>pending</td>
+<td>An admin created the question, but has not yet published it.</td>
+</tr>
+<tr>
+<td>ended</td>
+<td>The question&rsquo;s <code class="prettyprint">ends_at</code> timestamp has passed, but it has not yet been resolved.</td>
 </tr>
 </tbody></table>
 
