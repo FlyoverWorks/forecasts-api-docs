@@ -174,6 +174,7 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/questions" \
 Parameter | Default | Description
 --------- | ------- | -----------
 page | 0 | Pagination page number
+ids  | none | A comma separated list of question ID's to return (e.g. "123,124,125")
 tags | none | A comma separated list of tags to filter by (e.g. "sports,politics,tech")
 challenges | none | A comma separated list of challenge ids to filter by (e.g. "1,5,8"). Will return only questions in those challenges. Operates as a logical AND (ie. if you pass "1,5", it will return only questions that are in both challenges)
 filter | none | A filter to apply to the question list. Possible values: `starred`, `featured`. By default, no filter is applied.
