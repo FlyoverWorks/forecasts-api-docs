@@ -251,7 +251,7 @@ voided | The question was published for forecasting, but subsequently voided due
 refunded | Only applicable to prediction market-type questions. Roughly the same as `voided`, but all trades were refunded.
 resolved | The question has ended, been judged, and scored (or is in the process of scoring).
 pending | An admin created the question, but has not yet published it.
-ended | The question's `ends_at` timestamp has passed, but it has not yet been resolved.
+pending_resolution | The question's `ends_at` timestamp has passed, but it has not yet been resolved.
 
 
 
