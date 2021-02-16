@@ -2748,6 +2748,301 @@
 </tr>
 </tbody></table>
 
+          <h1 id="surveys">Surveys</h1>
+
+<h2 id="survey-detail">Survey Detail</h2>
+
+<p>Shows a survey and its responses</p>
+
+<blockquote>
+<p>Request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://yoursite.cultivateforecasts.com/api/v1/surveys/:id"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer b95b4f848cd226e55b7a42f6a8e8669350730270f5a91d64b6c70328b0156d75"</span>
+</code></pre>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">142</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"survey-2"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">660</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.872Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.872Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"published"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"survey-description-2"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"survey-instructions-2"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"randomize_page_order"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"survey_pages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">283</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"survey-page-3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"survey_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">142</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1003</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"page_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.878Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.878Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"time_limit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"acceptance_checkbox_text"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"randomize_question_order"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"survey_questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">421</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"survey-question-name-5"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"question-content-5"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"answer_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dropdown"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"survey_page_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">283</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.885Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.885Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"response_forcing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"force"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"survey_answers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">607</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"answer-value-7"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"survey_question_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">421</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.886Z"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.886Z"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">608</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"answer-value-8"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"survey_question_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">421</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.888Z"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.888Z"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">422</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"survey-question-name-6"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"question-content-6"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"answer_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"survey_page_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">283</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.889Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.889Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"response_forcing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_required"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"survey_answers"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">284</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"survey-page-4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"survey_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">142</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1004</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"page_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.881Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.881Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"time_limit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"acceptance_checkbox_text"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"randomize_question_order"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"survey_questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">423</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"survey-question-name-7"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"question-content-7"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"answer_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"radio"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"survey_page_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">284</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.892Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.892Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"response_forcing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"suggest"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"survey_answers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">609</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"answer-value-9"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"survey_question_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">423</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.894Z"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.894Z"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">610</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"answer-value-10"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"survey_question_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">423</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.896Z"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.896Z"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">424</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"survey-question-name-8"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"question-content-8"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"answer_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"numeric"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"survey_page_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">284</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.898Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.898Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"response_forcing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_required"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"survey_answers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">611</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"answer-value-11"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"survey_question_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">424</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.900Z"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.900Z"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">612</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"answer-value-12"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"survey_question_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">424</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.902Z"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.902Z"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"survey_responses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">235</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">658</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"survey_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">142</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.903Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.903Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"completed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"page_order"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"283"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"284"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"survey_question_responses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">562</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"survey_question_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">421</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"survey_answer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">607</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"survey_response_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">235</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.914Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.914Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"question_content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*question-content-5"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"answer_content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"answer-value-7"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">563</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"survey_question_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">422</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"survey_answer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"survey_response_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">235</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.916Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.916Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"question_content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"question-content-6"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"answer_content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I am the one who knocks."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">564</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"survey_question_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">423</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"survey_answer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">607</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"survey_response_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">235</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.918Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.918Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"question_content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"question-content-7"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"answer_content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"answer-value-7"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">565</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"survey_question_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">424</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"survey_answer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"survey_response_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">235</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.921Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T20:20:55.921Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"question_content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"question-content-8"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"answer_content"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="mi">611</span><span class="p">,</span><span class="w">
+            </span><span class="mi">612</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://yoursite.cultivateforecasts.com/api/v1/surveys/:id</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>responses_page</td>
+<td>0</td>
+<td>Pagination page number for the list of survey responses</td>
+</tr>
+</tbody></table>
+
+<h3 id="attribute-descriptions">Attribute Descriptions</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>The id of the survey</td>
+</tr>
+<tr>
+<td>site_id</td>
+<td>integer</td>
+<td>The id of the site this survey belongs to</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>The name of the survey</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>The creation timestamp for the survey</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>datetime</td>
+<td>The timestamp for the most recent update of this survey</td>
+</tr>
+<tr>
+<td>published</td>
+<td>boolean</td>
+<td>Whether or not this survey has been published</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>The description of the survey</td>
+</tr>
+<tr>
+<td>instructions</td>
+<td>string</td>
+<td>Instructions to be presented to the user at the start of the survey</td>
+</tr>
+<tr>
+<td>randomize_page_order</td>
+<td>boolean</td>
+<td>Whether or not the pages in the survey will be presented to the user in random order</td>
+</tr>
+</tbody></table>
+
           <h1 id="users">Users</h1>
 
 <h2 id="me">Me</h2>
