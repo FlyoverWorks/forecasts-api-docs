@@ -20,6 +20,7 @@ includes:
 - questions
 - scores
 - stars
+- surveys
 - users
 - votes
 
