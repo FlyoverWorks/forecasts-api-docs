@@ -5,7 +5,7 @@
 
 This API returns a list of score records. There are four types of score records: `AnswerBrierScore`, `QuestionBrierScore`, `ChallengeBrierScore`, and `SiteBrierScore`.
 
-If a given record has a membership_id value, that indicates that it is a score for a specific membership. If the membership_id is null, that indicates that it represents the site-wide score. For example, a if a score with type `Forecast::QuestionBrierScore` has a null membership_id, that record is the site-wide consensus' score for that particular question.
+If a given record has a `prediction_made_by_id` value, that indicates that it is a score for a specific predictor. If the `prediction_made_by_id` is null, that indicates that it represents the crowd's score.
 
 
 > Request:
@@ -27,7 +27,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/scores" \
       "scoreable_id": 4080,
       "scoreable_type": "Forecast::Answer",
       "site_id": 123,
-      "membership_id": null,
       "period_started_at": null,
       "period_ended_at": null,
       "created_at": "2016-09-19T21:34:21.400Z",
@@ -48,7 +47,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/scores" \
       "scoreable_id": 2554,
       "scoreable_type": "Forecast::Question",
       "site_id": 123,
-      "membership_id": 8573,
       "period_started_at": null,
       "period_ended_at": null,
       "created_at": "2016-09-23T21:34:21.946Z",
@@ -59,8 +57,8 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/scores" \
       "relative_brier_score": null,
       "median_brier_score_for_relative": null,
       "participation_rate": null,
-      "prediction_made_by_id": null,
-      "prediction_made_by_type": null
+      "prediction_made_by_id": 8573,
+      "prediction_made_by_type": "Ident::Membership"
     },
     {
       "id": 6212,
@@ -69,7 +67,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/scores" \
       "scoreable_id": 406,
       "scoreable_type": "Forecast::Challenge",
       "site_id": 123,
-      "membership_id": 8573,
       "period_started_at": null,
       "period_ended_at": null,
       "created_at": "2016-09-27T21:34:22.093Z",
@@ -80,8 +77,8 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/scores" \
       "relative_brier_score": null,
       "median_brier_score_for_relative": null,
       "participation_rate": null,
-      "prediction_made_by_id": null,
-      "prediction_made_by_type": null
+      "prediction_made_by_id": 8573,
+      "prediction_made_by_type": "Ident::Membership"
     },
     {
       "id": 6213,
@@ -90,7 +87,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/scores" \
       "scoreable_id": 5036,
       "scoreable_type": "Ident::Site",
       "site_id": 5035,
-      "membership_id": null,
       "period_started_at": null,
       "period_ended_at": null,
       "created_at": "2016-09-28T21:34:22.143Z",
@@ -118,6 +114,7 @@ Parameter | Default | Description
 --------- | ------- | -----------
 page | 0 | Pagination page number
 score_type | none | Returns scores of a specific type. Possible values: `component` (aka daily scores), `answer`, `question`, `challenge`, `site`
+membership_id | none | If this ID is present, the endpoint will give back scores for only that membership/user
 with_membership_id | none | If the value of this parameter is `true`, only scores with a membership_id set will be returned
 without_membership_id | none | If the value of this parameter is `true`, only scores without a membership_id set will be returned
 scoreable_id | none | Filters scores to include only scores for a single scoreable. This can be the id of an `answer`, `question`, `challenge`, or `site` record. If a value is passed for this parameter, the `score_type` record must also be set. So if you wanted scores for just a single question, you would pass `score_type=question&scoreable_id=123`

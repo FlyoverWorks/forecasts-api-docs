@@ -28,6 +28,7 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/questions" \
       "starts_at": null,
       "resolved_at": "2015-09-15T00:21:35.906Z",
       "voided_at": null,
+      "post_forecast_survey_id": null,
       "predictions_count": 0,
       "comments_count": 0,
       "created_at": "2015-08-04T00:21:35.910Z",
@@ -127,6 +128,7 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/questions" \
       "starts_at": null,
       "resolved_at": null,
       "voided_at": null,
+      "post_forecast_survey_id": null,
       "predictions_count": 0,
       "comments_count": 0,
       "created_at": "2015-08-04T00:21:35.953Z",
@@ -191,30 +193,31 @@ include_challenge_ids | false | Passing "true" for this value will include an ar
 
 Parameter | Type | Description
 --------- | ------- | -----------
-id | integer | The id of the question
-discover_question_id | integer | The id of the discover question used to generate/publish this question, if collaborative question generation (Discover) is being used
-name | string | The question content
-type | string | The internal question type (e.g. prediction market, binary prediction market, opinion pool)
-site_id | integer | The id of the site that this question belongs to
-membership_id | integer | The id of the membership who created this question
-ends_at | datetime | The date & time that this question stops accepting forecasts
-description | string | The description & background information for the question
-published_at | datetime | The date & time that this question was published
-starts_at | datetime | The date & time that this question started accepting forecasts
-resolved_at | datetime | The date & time that this question was resolved
-voided_at | datetime | The date & time that this question was voided. Blank if the question has not been voided. A voided question will not be resolved or scored.
-predictions_count | integer | The number of predictions that have been made in this question
+active | boolean | Whether or not this question is currently active for forecasting
+clarifications | array | An array of clarifications issued for the question. Used to clarify things like resolution criteria for the question.
 comments_count | integer | The number of comments that have been made in this question  
 created_at | datetime | The date & time that this question was created
-updated_at | datetime | The date & time that this question was last updated
-active | boolean | Whether or not this question is currently active for forecasting
-resolved | boolean | Whether or not this question has been resolved
+description | string | The description & background information for the question
+discover_question_id | integer | The id of the discover question used to generate/publish this question, if collaborative question generation (Discover) is being used
+ends_at | datetime | The date & time that this question stops accepting forecasts
+id | integer | The id of the question
+membership_id | integer | The id of the membership who created this question
+name | string | The question content
+post_forecast_survey_id | integer | If a survey is administered after forecasts in this question, the ID of that survey
+predictions_count | integer | The number of predictions that have been made in this question
+published_at | datetime | The date & time that this question was published
 resolution_notes | array | Any notes/information provided by an admin describing the resolution of the question and any data sources used.
-use_ordinal_scoring | boolean | Whether or not this question uses ordinal scoring for calculating Brier scores
-clarifications | array | An array of clarifications issued for the question. Used to clarify things like resolution criteria for the question.
-state | string | The current state of the question. Options enumerated in [question states](#question-states)
-scoring_start_time | datetime | The time at which scoring starts for this question.
+resolved | boolean | Whether or not this question has been resolved
+resolved_at | datetime | The date & time that this question was resolved
 scoring_end_time | datetime | The time at which scoring ends for this question.
+scoring_start_time | datetime | The time at which scoring starts for this question.
+site_id | integer | The id of the site that this question belongs to
+starts_at | datetime | The date & time that this question started accepting forecasts
+state | string | The current state of the question. Options enumerated in [question states](#question-states)
+type | string | The internal question type (e.g. prediction market, binary prediction market, opinion pool)
+updated_at | datetime | The date & time that this question was last updated
+use_ordinal_scoring | boolean | Whether or not this question uses ordinal scoring for calculating Brier scores
+voided_at | datetime | The date & time that this question was voided. Blank if the question has not been voided. A voided question will not be resolved or scored.
 
 ### Answer Attributes
 

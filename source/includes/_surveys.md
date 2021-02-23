@@ -163,6 +163,7 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/surveys/:id" \
       "id": 235,
       "user_id": 658,
       "survey_id": 142,
+      "question_id": 123,
       "created_at": "2021-02-16T20:20:55.903Z",
       "updated_at": "2021-02-16T20:20:55.903Z",
       "status": "completed",
