@@ -2428,7 +2428,7 @@
 
 <h2 id="scores-list">Scores List</h2>
 
-<p>This API returns a list of score records. There are four types of score records: <code class="prettyprint">AnswerBrierScore</code>, <code class="prettyprint">QuestionBrierScore</code>, <code class="prettyprint">ChallengeBrierScore</code>, and <code class="prettyprint">SiteBrierScore</code>.</p>
+<p>This API returns a list of score records. There are three types of score records: <code class="prettyprint">QuestionBrierScore</code> (a score for a single question), <code class="prettyprint">ChallengeBrierScore</code> (a score for all questions in a challenge), and <code class="prettyprint">SiteBrierScore</code> (an overall score).</p>
 
 <p>If a given record has a <code class="prettyprint">prediction_made_by_id</code> value, that indicates that it is a score for a specific predictor. If the <code class="prettyprint">prediction_made_by_id</code> is null, that indicates that it represents the crowd&rsquo;s score.</p>
 
@@ -2442,88 +2442,75 @@
 <p>Response:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"scores"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6207</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forecast::AnswerBrierScore"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.25"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"scoreable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4080</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"scoreable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forecast::Answer"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"period_started_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"period_ended_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-19T21:34:21.400Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-29T21:34:21.808Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ordinal_scoring_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"use_price"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"scoring_strategy_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">484</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"relative_brier_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"median_brier_score_for_relative"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"participation_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"prediction_made_by_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"prediction_made_by_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6210</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forecast::QuestionBrierScore"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.25"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"scoreable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2554</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"scoreable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forecast::Question"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"period_started_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"period_ended_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-23T21:34:21.946Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-29T21:34:21.999Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ordinal_scoring_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"use_price"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"scoring_strategy_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">484</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"relative_brier_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"median_brier_score_for_relative"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"participation_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"prediction_made_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8573</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"prediction_made_by_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ident::Membership"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6212</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forecast::ChallengeBrierScore"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.25"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"scoreable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">406</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"scoreable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forecast::Challenge"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"period_started_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"period_ended_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-27T21:34:22.093Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-29T21:34:22.140Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ordinal_scoring_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"use_price"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"scoring_strategy_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">484</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"relative_brier_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"median_brier_score_for_relative"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"participation_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"prediction_made_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8573</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"prediction_made_by_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ident::Membership"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6213</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forecast::SiteBrierScore"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.25"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"scoreable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5036</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"scoreable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ident::Site"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5035</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"period_started_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"period_ended_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-28T21:34:22.143Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-29T21:34:22.187Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ordinal_scoring_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"use_price"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"scoring_strategy_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">484</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"relative_brier_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"median_brier_score_for_relative"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"participation_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"prediction_made_by_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"prediction_made_by_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+    </span><span class="s2">"scores"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forecast::SiteBrierScore"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.25"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"scoreable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"scoreable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ident::Site"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"period_started_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"period_ended_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-28T12:37:18.827Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-28T13:37:18.850Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ordinal_scoring_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"use_price"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"scoring_strategy_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"relative_brier_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"comparison_brier_score_for_relative"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"participation_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"prediction_made_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"prediction_made_by_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ident::Membership"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"forecasted_probability"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"forecast_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forecast::ChallengeBrierScore"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.25"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"scoreable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"scoreable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forecast::Challenge"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"period_started_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"period_ended_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-26T13:37:18.758Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-28T13:37:18.790Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ordinal_scoring_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"use_price"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"scoring_strategy_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"relative_brier_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"comparison_brier_score_for_relative"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"participation_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"prediction_made_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"prediction_made_by_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ident::Membership"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"forecasted_probability"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"forecast_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forecast::QuestionBrierScore"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.25"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"scoreable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"scoreable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forecast::Question"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"period_started_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"period_ended_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-26T13:37:18.578Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-28T13:37:18.679Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ordinal_scoring_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"use_price"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"scoring_strategy_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"relative_brier_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"comparison_brier_score_for_relative"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"participation_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"prediction_made_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"prediction_made_by_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aggregation::Method"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"forecasted_probability"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"forecast_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"discover_question_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <h3 id="http-request">HTTP Request</h3>
@@ -2547,7 +2534,7 @@
 <tr>
 <td>score_type</td>
 <td>none</td>
-<td>Returns scores of a specific type. Possible values: <code class="prettyprint">component</code> (aka daily scores), <code class="prettyprint">answer</code>, <code class="prettyprint">question</code>, <code class="prettyprint">challenge</code>, <code class="prettyprint">site</code></td>
+<td>Returns scores of a specific type. Possible values: <code class="prettyprint">question</code>, <code class="prettyprint">challenge</code>, <code class="prettyprint">site</code></td>
 </tr>
 <tr>
 <td>membership_id</td>
@@ -2567,7 +2554,17 @@
 <tr>
 <td>scoreable_id</td>
 <td>none</td>
-<td>Filters scores to include only scores for a single scoreable. This can be the id of an <code class="prettyprint">answer</code>, <code class="prettyprint">question</code>, <code class="prettyprint">challenge</code>, or <code class="prettyprint">site</code> record. If a value is passed for this parameter, the <code class="prettyprint">score_type</code> record must also be set. So if you wanted scores for just a single question, you would pass <code class="prettyprint">score_type=question&amp;scoreable_id=123</code></td>
+<td>Filters scores to include only scores for a single scoreable. This can be the id of an <code class="prettyprint">question</code>, <code class="prettyprint">challenge</code>, or <code class="prettyprint">site</code> record. If a value is passed for this parameter, the <code class="prettyprint">score_type</code> record must also be set. So if you wanted scores for just a single question, you would pass <code class="prettyprint">score_type=question&amp;scoreable_id=123</code></td>
+</tr>
+<tr>
+<td>predictor_type</td>
+<td>none</td>
+<td>Filters scores to include only predicotrs of a certain type. Possible values: <code class="prettyprint">user</code>, <code class="prettyprint">team</code></td>
+</tr>
+<tr>
+<td>include_daily_scores</td>
+<td>false</td>
+<td>If <code class="prettyprint">true</code>, a <code class="prettyprint">daily_scores</code> attribute will be included with <code class="prettyprint">question</code> scores that includes a breakdown of the predictor&rsquo;s daily scores for that question.</td>
 </tr>
 <tr>
 <td>created_before</td>
