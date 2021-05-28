@@ -3,7 +3,7 @@
 
 ## Scores List
 
-This API returns a list of score records. There are four types of score records: `AnswerBrierScore`, `QuestionBrierScore`, `ChallengeBrierScore`, and `SiteBrierScore`.
+This API returns a list of score records. There are three types of score records: `QuestionBrierScore` (a score for a single question), `ChallengeBrierScore` (a score for all questions in a challenge), and `SiteBrierScore` (an overall score).
 
 If a given record has a `prediction_made_by_id` value, that indicates that it is a score for a specific predictor. If the `prediction_made_by_id` is null, that indicates that it represents the crowd's score.
 
@@ -19,88 +19,75 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/scores" \
 
 ```json
 {
-  "scores": [
-    {
-      "id": 6207,
-      "type": "Forecast::AnswerBrierScore",
-      "value": "0.25",
-      "scoreable_id": 4080,
-      "scoreable_type": "Forecast::Answer",
-      "site_id": 123,
-      "period_started_at": null,
-      "period_ended_at": null,
-      "created_at": "2016-09-19T21:34:21.400Z",
-      "updated_at": "2016-09-29T21:34:21.808Z",
-      "ordinal_scoring_enabled": false,
-      "use_price": false,
-      "scoring_strategy_id": 484,
-      "relative_brier_score": null,
-      "median_brier_score_for_relative": null,
-      "participation_rate": null,
-      "prediction_made_by_id": null,
-      "prediction_made_by_type": null
-    },
-    {
-      "id": 6210,
-      "type": "Forecast::QuestionBrierScore",
-      "value": "0.25",
-      "scoreable_id": 2554,
-      "scoreable_type": "Forecast::Question",
-      "site_id": 123,
-      "period_started_at": null,
-      "period_ended_at": null,
-      "created_at": "2016-09-23T21:34:21.946Z",
-      "updated_at": "2016-09-29T21:34:21.999Z",
-      "ordinal_scoring_enabled": false,
-      "use_price": false,
-      "scoring_strategy_id": 484,
-      "relative_brier_score": null,
-      "median_brier_score_for_relative": null,
-      "participation_rate": null,
-      "prediction_made_by_id": 8573,
-      "prediction_made_by_type": "Ident::Membership"
-    },
-    {
-      "id": 6212,
-      "type": "Forecast::ChallengeBrierScore",
-      "value": "0.25",
-      "scoreable_id": 406,
-      "scoreable_type": "Forecast::Challenge",
-      "site_id": 123,
-      "period_started_at": null,
-      "period_ended_at": null,
-      "created_at": "2016-09-27T21:34:22.093Z",
-      "updated_at": "2016-09-29T21:34:22.140Z",
-      "ordinal_scoring_enabled": false,
-      "use_price": false,
-      "scoring_strategy_id": 484,
-      "relative_brier_score": null,
-      "median_brier_score_for_relative": null,
-      "participation_rate": null,
-      "prediction_made_by_id": 8573,
-      "prediction_made_by_type": "Ident::Membership"
-    },
-    {
-      "id": 6213,
-      "type": "Forecast::SiteBrierScore",
-      "value": "0.25",
-      "scoreable_id": 5036,
-      "scoreable_type": "Ident::Site",
-      "site_id": 5035,
-      "period_started_at": null,
-      "period_ended_at": null,
-      "created_at": "2016-09-28T21:34:22.143Z",
-      "updated_at": "2016-09-29T21:34:22.187Z",
-      "ordinal_scoring_enabled": false,
-      "use_price": false,
-      "scoring_strategy_id": 484,
-      "relative_brier_score": null,
-      "median_brier_score_for_relative": null,
-      "participation_rate": null,
-      "prediction_made_by_id": null,
-      "prediction_made_by_type": null
-    }
-  ]
+    "scores": [
+        {
+            "id": 10,
+            "type": "Forecast::SiteBrierScore",
+            "value": "0.25",
+            "scoreable_id": 13,
+            "scoreable_type": "Ident::Site",
+            "site_id": 13,
+            "period_started_at": null,
+            "period_ended_at": null,
+            "created_at": "2021-05-28T12:37:18.827Z",
+            "updated_at": "2021-05-28T13:37:18.850Z",
+            "ordinal_scoring_enabled": false,
+            "use_price": false,
+            "scoring_strategy_id": 2,
+            "relative_brier_score": null,
+            "comparison_brier_score_for_relative": null,
+            "participation_rate": null,
+            "prediction_made_by_id": 3,
+            "prediction_made_by_type": "Ident::Membership",
+            "forecasted_probability": null,
+            "forecast_type": null
+        },
+        {
+            "id": 8,
+            "type": "Forecast::ChallengeBrierScore",
+            "value": "0.25",
+            "scoreable_id": 2,
+            "scoreable_type": "Forecast::Challenge",
+            "site_id": 2,
+            "period_started_at": null,
+            "period_ended_at": null,
+            "created_at": "2021-05-26T13:37:18.758Z",
+            "updated_at": "2021-05-28T13:37:18.790Z",
+            "ordinal_scoring_enabled": false,
+            "use_price": false,
+            "scoring_strategy_id": 2,
+            "relative_brier_score": null,
+            "comparison_brier_score_for_relative": null,
+            "participation_rate": null,
+            "prediction_made_by_id": 3,
+            "prediction_made_by_type": "Ident::Membership",
+            "forecasted_probability": null,
+            "forecast_type": null
+        },
+        {
+            "id": 5,
+            "type": "Forecast::QuestionBrierScore",
+            "value": "0.25",
+            "scoreable_id": 5,
+            "scoreable_type": "Forecast::Question",
+            "site_id": 2,
+            "period_started_at": null,
+            "period_ended_at": null,
+            "created_at": "2021-05-26T13:37:18.578Z",
+            "updated_at": "2021-05-28T13:37:18.679Z",
+            "ordinal_scoring_enabled": false,
+            "use_price": false,
+            "scoring_strategy_id": 2,
+            "relative_brier_score": null,
+            "comparison_brier_score_for_relative": null,
+            "participation_rate": null,
+            "prediction_made_by_id": 1,
+            "prediction_made_by_type": "Aggregation::Method",
+            "forecasted_probability": null,
+            "forecast_type": null,
+            "discover_question_id": null
+        }
+    ]
 }
 ```
 
@@ -113,11 +100,13 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/scores" \
 Parameter | Default | Description
 --------- | ------- | -----------
 page | 0 | Pagination page number
-score_type | none | Returns scores of a specific type. Possible values: `component` (aka daily scores), `answer`, `question`, `challenge`, `site`
+score_type | none | Returns scores of a specific type. Possible values: `question`, `challenge`, `site`
 membership_id | none | If this ID is present, the endpoint will give back scores for only that membership/user
 with_membership_id | none | If the value of this parameter is `true`, only scores with a membership_id set will be returned
 without_membership_id | none | If the value of this parameter is `true`, only scores without a membership_id set will be returned
-scoreable_id | none | Filters scores to include only scores for a single scoreable. This can be the id of an `answer`, `question`, `challenge`, or `site` record. If a value is passed for this parameter, the `score_type` record must also be set. So if you wanted scores for just a single question, you would pass `score_type=question&scoreable_id=123`
+scoreable_id | none | Filters scores to include only scores for a single scoreable. This can be the id of an `question`, `challenge`, or `site` record. If a value is passed for this parameter, the `score_type` record must also be set. So if you wanted scores for just a single question, you would pass `score_type=question&scoreable_id=123`
+predictor_type | none | Filters scores to include only predicotrs of a certain type. Possible values: `user`, `team`
+include_daily_scores | false | If `true`, a `daily_scores` attribute will be included with `question` scores that includes a breakdown of the predictor's daily scores for that question.
 created_before | none | Returns only scores created before the passed date. Date should be in iso8601 format (e.g. 2015-08-23T15:43:11-05:00)
 created_after | none | Returns only scores created after the passed date. Date should be in iso8601 format (e.g. 2015-08-23T15:43:11-05:00)
 updated_before | none | Returns only scores updated before the passed date. Date should be in iso8601 format (e.g. 2015-08-23T15:43:11-05:00)
