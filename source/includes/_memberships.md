@@ -100,8 +100,6 @@ Parameter | Type | Description
 id | integer | The id of the membership
 site_id | integer | The id of the site that this membership belongs to
 user_id | integer | The id of the user that this membership belongs to
-balance | float | The prediction market currency balance of the membership
-level | integer | The user's level. Only applicable in sites that use the user leveling system.
 avatar_url | string | A URL containing an avatar image for the user
 role | string | The role/privileges of the membership. Can be "user" or "admin"
 user.id | integer | The id of the user

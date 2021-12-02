@@ -32,7 +32,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/scores" \
             "created_at": "2021-05-28T12:37:18.827Z",
             "updated_at": "2021-05-28T13:37:18.850Z",
             "ordinal_scoring_enabled": false,
-            "use_price": false,
             "scoring_strategy_id": 2,
             "relative_brier_score": null,
             "comparison_brier_score_for_relative": null,
@@ -54,7 +53,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/scores" \
             "created_at": "2021-05-26T13:37:18.758Z",
             "updated_at": "2021-05-28T13:37:18.790Z",
             "ordinal_scoring_enabled": false,
-            "use_price": false,
             "scoring_strategy_id": 2,
             "relative_brier_score": null,
             "comparison_brier_score_for_relative": null,
@@ -76,7 +74,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/scores" \
             "created_at": "2021-05-26T13:37:18.578Z",
             "updated_at": "2021-05-28T13:37:18.679Z",
             "ordinal_scoring_enabled": false,
-            "use_price": false,
             "scoring_strategy_id": 2,
             "relative_brier_score": null,
             "comparison_brier_score_for_relative": null,
@@ -125,7 +122,6 @@ scoreable_type | string | The type of record receiving the score
 period_started_at | date | The start date of the time period being scored
 period_ended_at | date | The end date of the time period being scored
 ordinal_scoring_enabled | boolean | Ordinal scoring can be enabled for questions where certain answers are "closer" to being correct than others (e.g. when the answers are buckets of numbers). This flag indicates whether ordinal scoring was enabled for this score.
-use_price | boolean | A true value indicates that the stock price was used to generate this score (only applicable to prediction markets)
 scoring_strategy_id | integer | A scoring strategy defines a set of settings used for scoring forecasts. This indicates the id of the strategy used to generate this score
 relative_brier_score | float | The relative brier score
 median_brier_score_for_relative | float | The median brier score for all forecasters in this answer+period combination, which is used to compute a relative brier score

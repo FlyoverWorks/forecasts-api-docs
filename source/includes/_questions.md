@@ -17,7 +17,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/questions" \
   "questions": [
     {
       "id": 5,
-      "discover_question_id": 123,
       "name": "question-2",
       "type": "Forecast::Question",
       "site_id": 1,
@@ -47,7 +46,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/questions" \
           "created_at": "2015-08-04T00:21:35.918Z",
           "ends_at": "2016-02-04T00:21:35.916Z",
           "id": 11,
-          "discover_answer_id": 423,
           "membership_id": 1,
           "name": "answer-name-11",
           "outstanding": 0,
@@ -56,8 +54,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/questions" \
           "probability": "0.3333",
           "probability_formatted": "33.33%",
           "question_id": 5,
-          "refunded_at": null,
-          "refunded_by_id": null,
           "resolved_at": "2015-09-15T00:21:35.906Z",
           "resolved_by_id": 12,
           "correctness_known_at": "2015-09-15T00:21:35.906Z",
@@ -68,7 +64,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/questions" \
           "created_at": "2015-08-04T00:21:35.927Z",
           "ends_at": "2016-02-04T00:21:35.925Z",
           "id": 12,
-          "discover_answer_id": 424,
           "membership_id": 1,
           "name": "answer-name-12",
           "outstanding": 0,
@@ -77,8 +72,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/questions" \
           "probability": "0.3333",
           "probability_formatted": "33.33%",
           "question_id": 5,
-          "refunded_at": null,
-          "refunded_by_id": null,
           "resolved_at": "2015-09-15T00:21:35.906Z",
           "resolved_by_id": 12,
           "correctness_known_at": "2015-09-15T00:21:35.906Z",
@@ -89,7 +82,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/questions" \
           "created_at": "2015-08-04T00:21:35.933Z",
           "ends_at": "2016-02-04T00:21:35.931Z",
           "id": 13,
-          "discover_answer_id": 425,
           "membership_id": 1,
           "name": "answer-name-13",
           "outstanding": 0,
@@ -98,8 +90,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/questions" \
           "probability": "0.3333",
           "probability_formatted": "33.33%",
           "question_id": 5,
-          "refunded_at": null,
-          "refunded_by_id": null,
           "resolved_at": "2015-09-15T00:21:35.906Z",
           "resolved_by_id": 12,
           "correctness_known_at": "2015-09-15T00:21:35.906Z",
@@ -117,7 +107,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/questions" \
     },
     {
       "id": 6,
-      "discover_question_id": 31,
       "name": "binary_question-2",
       "type": "Forecast::Binary::Question",
       "site_id": 1,
@@ -144,7 +133,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/questions" \
           "created_at": "2015-08-04T00:21:35.965Z",
           "ends_at": "2016-02-04T00:21:35.962Z",
           "id": 14,
-          "discover_answer_id": 429,
           "membership_id": 1,
           "name": "answer-name-14",
           "outstanding": 0,
@@ -153,8 +141,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/questions" \
           "probability": "0.5",
           "probability_formatted": "50.00%",
           "question_id": 6,
-          "refunded_at": null,
-          "refunded_by_id": null,
           "resolved_at": null,
           "resolved_by_id": null,
           "correctness_known_at": null,
@@ -198,7 +184,6 @@ clarifications | array | An array of clarifications issued for the question. Use
 comments_count | integer | The number of comments that have been made in this question  
 created_at | datetime | The date & time that this question was created
 description | string | The description & background information for the question
-discover_question_id | integer | The id of the discover question used to generate/publish this question, if collaborative question generation (Discover) is being used
 ends_at | datetime | The date & time that this question stops accepting forecasts
 id | integer | The id of the question
 membership_id | integer | The id of the membership who created this question
@@ -214,7 +199,7 @@ scoring_start_time | datetime | The time at which scoring starts for this questi
 site_id | integer | The id of the site that this question belongs to
 starts_at | datetime | The date & time that this question started accepting forecasts
 state | string | The current state of the question. Options enumerated in [question states](#question-states)
-type | string | The internal question type (e.g. prediction market, binary prediction market, opinion pool)
+type | string | The internal question type
 updated_at | datetime | The date & time that this question was last updated
 use_ordinal_scoring | boolean | Whether or not this question uses ordinal scoring for calculating Brier scores
 voided_at | datetime | The date & time that this question was voided. Blank if the question has not been voided. A voided question will not be resolved or scored.
@@ -223,25 +208,21 @@ voided_at | datetime | The date & time that this question was voided. Blank if t
 
 Parameter | Type | Description
 --------- | ------- | -----------
-id | integer | The id of the answer
-discover_answer_id | integer | The id of the discover answer used to generate/publish this question, if collaborative question generation (Discover) is being used
+id | integer | The id of the answegenerate/publish this question, if collaborative question generation (Discover) is being used
 created_at | datetime | The date & time that this answer was created
 updated_at | datetime | The date & time that this answer was last updated
 ends_at | datetime | The date & time that this answer stops accepting forecasts
 membership_id | integer | The id of the membership who created this answer
 name | string | The answer content
-outstanding | integer | If this question is a prediction market, this represents the number of outstanding shares in this stock
 positions_count | integer | The number of positions forecasters have taken in this answer
 predictions_count | integer | The number of predictions forecasters have made in this answer
 probability | float | The current consensus probability for this answer
 probability_formatted | string | The current consensus probability for this answer, formatted as a percentage
 question_id | integer | The id of the question that this answer belongs to
-refunded_at | datetime | If this question is a prediction market and this stock has been refunded, the date & time the refund occurred
-refunded_by_id | integer | The membership_id of the membership who refunded this stock
 resolved_at | datetime | The date & time that this answer was resolved
 resolved_by_id | integer | The memebership_id of the membership who resolved this answer
 correctness_known_at | datetime | The date & time that the correctness of this answer was known. If an administrator sets this value when resolving the answer, all forecasts made after it will be invalidated.
-type | string | The internal answer type (e.g. prediction market stock, opinion pool answer)
+type | string | The internal answer type
 
 
 ### Question States
@@ -251,7 +232,6 @@ State | Description
 active | Currently open for forecasting
 rejected | An admin rejected the suggested question. It won't be published for forecasting.
 voided | The question was published for forecasting, but subsequently voided due to unforeseen issues with the question. It will not be scored or resolved.
-refunded | Only applicable to prediction market-type questions. Roughly the same as `voided`, but all trades were refunded.
 resolved | The question has ended, been judged, and scored (or is in the process of scoring).
 pending | An admin created the question, but has not yet published it.
 pending_resolution | The question's `ends_at` timestamp has passed, but it has not yet been resolved.
@@ -273,7 +253,7 @@ pending_resolution | The question's `ends_at` timestamp has passed, but it has n
     "name": "How many tournaments will Tiger win this year?",
     "description": "This question includes only major tournaments"
     "ends_at": "2017-12-31T23:59:59Z"
-    "type": "Forecast::PM::LMSR::ExclusiveMarket"
+    "type": "Forecast::Question"
     "answers_attributes": {
       "1": {
         "name": "0",
@@ -321,8 +301,7 @@ Parameter | Required? | Description
 name | Yes | The name of the answer
 probability_whole_number | Yes | The starting probability of the answer
 sort_order | No | The order in which this answer is displayed
-id | No | The unique id of the answer--use only for updating
-discover_answer_id | No | For questions created via Discover, the id of the Discover answer that corresponds to this answer
+id | No | The unique id of the answer--use only for updatinthe Discover answer that corresponds to this answer
 _destroy | No | Set to "true" to destroy this answer
 
 ### Link Parameters
@@ -340,8 +319,3 @@ Question Type | Description
 ------------- | -----------
 "Forecast::Question" | A multi-answer prediction pool
 "Forecast::Binary::Question" | A prediction pool with only one answer (eg Yes/No)
-"Forecast::RollingQuestion" | A rolling prediction pool, with new answers appearing over time
-"Forecast::PM::LMSR::ExclusiveMarket" | A multi-answer prediction market with one correct answer
-"Forecast::PM::LMSR::NonExclusiveMarket" | A multi-answer prediction market that allows multiple correct answers
-"Forecast::PM::LMSR::BinaryMarket" | A prediction market with only one answer
-"Forecast::PM::LMSR::RollingMarket" | A rolling prediction market, with new answers appearing over time

@@ -1,7 +1,7 @@
 
 # Prediction Sets / Forecasts
 
-A prediction set is the primary model for storing individual user forecasts within Cultivate Forecasts. A prediction set can contain a single prediction or multiple predictions, depending on the question type. In a prediction market, all prediction sets have a single prediction (a trade). In an opinion pool, prediction sets have one prediction for each answer in the question.
+A prediction set is the primary model for storing individual user forecasts within Cultivate Forecasts. Prediction sets have one prediction for each possible answer in the question.
 
 ## Prediction Sets List
 
@@ -37,7 +37,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/prediction_sets" \
           "starting_probability": "0.3333",
           "final_probability": "0.5",
           "filled_at": null,
-          "refunded_at": null,
           "created_at": "2015-08-04T00:21:36.913Z",
           "updated_at": "2015-08-04T00:21:37.147Z",
           "confidence_level": "confidence_medium",
@@ -65,7 +64,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/prediction_sets" \
           "starting_probability": "0.3333",
           "final_probability": "0.3333",
           "filled_at": null,
-          "refunded_at": null,
           "created_at": "2015-08-04T00:21:40.733Z",
           "updated_at": "2015-08-04T00:21:40.733Z",
           "confidence_level": null,
@@ -82,7 +80,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/prediction_sets" \
           "starting_probability": "0.3333",
           "final_probability": "0.3333",
           "filled_at": null,
-          "refunded_at": null,
           "created_at": "2015-08-04T00:21:40.741Z",
           "updated_at": "2015-08-04T00:21:40.741Z",
           "confidence_level": null,
@@ -99,7 +96,6 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/prediction_sets" \
           "starting_probability": "0.3333",
           "final_probability": "0.3333",
           "filled_at": null,
-          "refunded_at": null,
           "created_at": "2015-08-04T00:21:40.754Z",
           "updated_at": "2015-08-04T00:21:40.754Z",
           "confidence_level": null,
@@ -141,21 +137,13 @@ predictions.id | integer | The id of the prediction
 predictions.answer_id | integer | The id of the answer this prediction belongs to
 predictions.membership_id | integer | The id of the membership that submitted the prediction
 predictions.filled_at | date | The timestamp of when the prediction was processed. This timestamp is used for scoring
-predictions.refunded_at | date | The timestamp of when the prediction was refunded, if it's a prediction market that has been refunded
 predictions.made_after_correctness_known | boolean | Whether or not the prediction was submitted after the "correctness" of the answer was already known
-predictions.spend | float | The amount of clinkles the user spent on the trade, if it's in a prediction market
-predictions.quantity | float | The number of shares the user received in the trade, if it's in a prediction market
 predictions.forecasted_probability | float | The probability estimate that the user submitted with the forecast
 predictions.starting_probability | float | The consensus probability of the answer prior to incorporating this forecast
 predictions.final_probability | float | The consensus probability of the answer prior to incorporating this forecast
-predictions.starting_price | float | The price of the answer prior to incorporating this forecast (only applicable to prediction markets)
-predictions.final_price | float | The price of the answer prior to incorporating this forecast (only applicable to prediction markets)
-
 
 
 ## Prediction Set Creation
-
-All predictions are part of a prediction set. In the case of a prediction market, the prediction set will have a single prediction (aka. a trade), while an opinion pool question will have multiple predictions as part of a single prediction set (one for each answer in the question).
 
 This endpoint can be used to submit new prediction sets. All prediction sets require a question id as part of the URL and must include parameters for the prediction set. See below for a list of required parameters. All parameters must be nested under a "prediction_set" key (see example request body below).
 
@@ -211,7 +199,6 @@ The response contains the newly created prediction set and associated prediction
       "answer_name": "answer-name-78",
       "membership_id": 7,
       "filled_at": "2016-03-22T21:27:24.428Z",
-      "refunded_at": null,
       "created_at": "2016-03-22T21:27:24.428Z",
       "updated_at": "2016-03-22T21:27:24.428Z",
       "confidence_level": null,
@@ -220,9 +207,7 @@ The response contains the newly created prediction set and associated prediction
       "quantity": -8.6919,
       "forecasted_probability": 0.2,
       "starting_probability": 0.3333,
-      "final_probability": 0.2,
-      "starting_price": 0.3333,
-      "final_price": 0.2959
+      "final_probability": 0.2
     }
   ]
 }

@@ -9,14 +9,12 @@ toc_footers:
 
 includes:
 - pagination
-- push_apis
 - badges
 - clarifications
 - comments
 - earned_badges
 - memberships
 - prediction_sets
-- positions
 - questions
 - scores
 - stars
