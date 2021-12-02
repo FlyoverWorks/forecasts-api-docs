@@ -1,7 +1,7 @@
 ---
 title: Cultivate Forecasts API Reference
 
-language_tabs:
+language_tabs: # must be one of https://git.io/vQNgJ
   - shell
 
 toc_footers:
@@ -23,6 +23,12 @@ includes:
 - votes
 
 search: true
+
+code_clipboard: true
+
+meta:
+  - name: description
+    content: Documentation for the Kittn API
 ---
 
 
