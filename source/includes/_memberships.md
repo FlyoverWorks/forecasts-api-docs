@@ -23,10 +23,8 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/memberships" \
       "id": 1,
       "site_id": 1,
       "user_id": 1,
-      "balance": "10000.0",
       "created_at": "2015-08-04T00:21:34.623Z",
       "updated_at": "2015-08-04T00:21:34.651Z",
-      "level": 1,
       "avatar": "ident/default_avatars/level-1-1.png",
       "role": "admin",
       "user": {
@@ -50,10 +48,8 @@ curl "https://yoursite.cultivateforecasts.com/api/v1/memberships" \
       "id": 2,
       "site_id": 1,
       "user_id": 2,
-      "balance": "5298.92",
       "created_at": "2015-08-04T00:21:34.948Z",
       "updated_at": "2015-08-04T00:21:37.438Z",
-      "level": 0,
       "avatar": "ident/default_avatars/level-0-1.png",
       "role": "user",
       "user": {
