@@ -348,6 +348,9 @@
                   <li>
                     <a href="#comments-list" class="toc-h2 toc-link" data-title="Comments List">Comments List</a>
                   </li>
+                  <li>
+                    <a href="#comment-creation" class="toc-h2 toc-link" data-title="Comment Creation">Comment Creation</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -832,6 +835,125 @@
 <td>commenter_id</td>
 <td>integer</td>
 <td>The ID of the membership/user who made the comment</td>
+</tr>
+</tbody></table>
+<h2 id='comment-creation'>Comment Creation</h2>
+<p>Creates a comment. The comment will be attributed to the owner of the oauth token that you&#39;re using to submit the request. To reply to another comment, you should include a <code>parent_id</code> parameter containing the ID of the comment to which you&#39;re replying.</p>
+
+<blockquote>
+<p>Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> <span class="s2">"POST"</span> <span class="s2">"https://yoursite.cultivateforecasts.com/api/v1/comments"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer b95b4f848cd226e55b7a42f6a8e8669350730270f5a91d64b6c70328b0156d75"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s2">"{</span><span class="se">\"</span><span class="s2">parent_id</span><span class="se">\"</span><span class="s2">: 123, </span><span class="se">\"</span><span class="s2">commentable_id</span><span class="se">\"</span><span class="s2">:959,</span><span class="se">\"</span><span class="s2">commentable_type</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Forecast::Question</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">comment</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">content</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">And now his watch has ended.</span><span class="se">\"</span><span class="s2">}}"</span>
+</code></pre></div>
+<blockquote>
+<p>Request body example:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"commentable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">959</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"commentable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forecast::Question"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"And now his watch has ended."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+
+<p>If the comment is not a reply, the response contains the newly created comment.</p>
+
+<p>If the comment is a reply (ie. a <code>parent_id</code> was given), the response contains the parent comment and its children.</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="err">//</span><span class="w"> </span><span class="err">When</span><span class="w"> </span><span class="err">creating</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">non-reply</span><span class="w"> </span><span class="err">comment:</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1177</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"commentable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">959</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"commentable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forecast::Question"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"children_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-26T15:16:07.461Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-26T15:16:07.461Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"net_votes_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"anonymous"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"membership_username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TheTank2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"membership_avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/assets/default_theme/v18/ident/default_avatars/level-1-1-b9c925ca8bbd1b06f41ec78eecb73e098a6f1dc741c688684307fa6d59917c69.png"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"commenter_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2265</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"commenter_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ident::Membership"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"commentable_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"question-name ff632fd942fc"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"And now his watch has ended."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content_html"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\u</span><span class="s2">003cdiv class=</span><span class="se">\"</span><span class="s2">content</span><span class="se">\"\u</span><span class="s2">003e</span><span class="se">\n</span><span class="s2">  </span><span class="se">\n\u</span><span class="s2">003cdiv class=</span><span class="se">\"</span><span class="s2">raw_content</span><span class="se">\"\u</span><span class="s2">003e</span><span class="se">\n</span><span class="s2">  And now his watch has ended.</span><span class="se">\n\u</span><span class="s2">003c/div</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\n\u</span><span class="s2">003c/div</span><span class="se">\u</span><span class="s2">003e"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="err">//</span><span class="w"> </span><span class="err">When</span><span class="w"> </span><span class="err">creating</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">reply</span><span class="w"> </span><span class="err">comment:</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1195</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"commentable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">959</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"commentable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forecast::Question"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"children_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-26T15:57:22.074Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-26T15:57:22.074Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"net_votes_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"anonymous"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"membership_username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TheTank4"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"membership_avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/assets/default_theme/v18/ident/default_avatars/level-1-1-b9c925ca8bbd1b06f41ec78eecb73e098a6f1dc741c688684307fa6d59917c69.png"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"commenter_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2264</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"commenter_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ident::Membership"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"commentable_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"question-name d43b5b6bbbe0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comment</span><span class="se">\n</span><span class="s2"> 1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content_html"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\u</span><span class="s2">003cdiv class=</span><span class="se">\"</span><span class="s2">content</span><span class="se">\"\u</span><span class="s2">003e</span><span class="se">\n</span><span class="s2">  </span><span class="se">\n\u</span><span class="s2">003cdiv class=</span><span class="se">\"</span><span class="s2">raw_content</span><span class="se">\"\u</span><span class="s2">003e</span><span class="se">\n</span><span class="s2">  </span><span class="se">\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003ecomment</span><span class="se">\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003e 1</span><span class="se">\n\u</span><span class="s2">003c/div</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\n\u</span><span class="s2">003c/div</span><span class="se">\u</span><span class="s2">003e"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"children"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1196</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"commentable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">959</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"commentable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forecast::Question"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"children_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-26T15:57:22.113Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-26T15:57:22.113Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"net_votes_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"anonymous"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"membership_username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TheTank2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"membership_avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/assets/default_theme/v18/ident/default_avatars/level-1-1-b9c925ca8bbd1b06f41ec78eecb73e098a6f1dc741c688684307fa6d59917c69.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"commenter_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2265</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"commenter_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ident::Membership"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"And now his watch has ended."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"content_html"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\u</span><span class="s2">003cdiv class=</span><span class="se">\"</span><span class="s2">content</span><span class="se">\"\u</span><span class="s2">003e</span><span class="se">\n</span><span class="s2">  </span><span class="se">\n\u</span><span class="s2">003cdiv class=</span><span class="se">\"</span><span class="s2">raw_content</span><span class="se">\"\u</span><span class="s2">003e</span><span class="se">\n</span><span class="s2">  And now his watch has ended.</span><span class="se">\n\u</span><span class="s2">003c/div</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\n\u</span><span class="s2">003c/div</span><span class="se">\u</span><span class="s2">003e"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://yoursite.cultivateforecasts.com/api/v1/comments</code></p>
+<h3 id='comment-parameters'>Comment Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>parent_id</td>
+<td>No</td>
+<td>The ID of another comment to which this is a reply.</td>
+</tr>
+<tr>
+<td>commentable_id</td>
+<td>Yes</td>
+<td>The ID of the commentable that this comment should be attached to. Most likely a question ID.</td>
+</tr>
+<tr>
+<td>commentable_type</td>
+<td>Yes</td>
+<td>The type of commentable that this comment should be attached to. Most likely <code>Forecast::Question</code>.</td>
+</tr>
+<tr>
+<td>comment.content</td>
+<td>Yes</td>
+<td>The text of the comment.</td>
 </tr>
 </tbody></table>
 <h1 id='earned-badges'>Earned Badges</h1><h2 id='earned-badge-creation'>Earned Badge Creation</h2>
