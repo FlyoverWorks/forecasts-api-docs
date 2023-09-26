@@ -102,3 +102,115 @@ anonymous | boolean | Whether this comment was made anonymously
 membership_username | string | The username of the user who created the comment
 membership_avatar_url | string | The URL of the user's avatar image
 commenter_id | integer | The ID of the membership/user who made the comment
+
+
+
+
+
+## Comment Creation
+
+Creates a comment. The comment will be attributed to the owner of the oauth token that you're using to submit the request. To reply to another comment, you should include a `parent_id` parameter containing the ID of the comment to which you're replying.
+
+> Request:
+
+```shell
+curl -X "POST" "https://yoursite.cultivateforecasts.com/api/v1/comments" \
+  -H "Authorization: Bearer b95b4f848cd226e55b7a42f6a8e8669350730270f5a91d64b6c70328b0156d75" \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json" \
+	-d "{\"parent_id\": 123, \"commentable_id\":959,\"commentable_type\":\"Forecast::Question\",\"comment\":{\"content\":\"And now his watch has ended.\"}}"
+```
+
+> Request body example:
+
+```json
+{
+  "commentable_id": 959,
+  "commentable_type": "Forecast::Question",
+  "comment": {
+    "content": "And now his watch has ended."
+  }
+}
+```
+
+
+> Response:
+
+If the comment is not a reply, the response contains the newly created comment.
+
+If the comment is a reply (ie. a `parent_id` was given), the response contains the parent comment and its children.
+
+```json
+// When creating a non-reply comment:
+{
+  "id": 1177,
+  "commentable_id": 959,
+  "commentable_type": "Forecast::Question",
+  "children_count": 0,
+  "parent_id": null,
+  "created_at": "2023-09-26T15:16:07.461Z",
+  "updated_at": "2023-09-26T15:16:07.461Z",
+  "net_votes_count": 0,
+  "anonymous": false,
+  "membership_username": "TheTank2",
+  "membership_avatar_url": "/assets/default_theme/v18/ident/default_avatars/level-1-1-b9c925ca8bbd1b06f41ec78eecb73e098a6f1dc741c688684307fa6d59917c69.png",
+  "commenter_id": 2265,
+  "commenter_type": "Ident::Membership",
+  "commentable_name": "question-name ff632fd942fc",
+  "content": "And now his watch has ended.",
+  "content_html": "\u003cdiv class=\"content\"\u003e\n  \n\u003cdiv class=\"raw_content\"\u003e\n  And now his watch has ended.\n\u003c/div\u003e\n\u003c/div\u003e"
+}
+
+// When creating a reply comment:
+{
+  "id": 1195,
+  "commentable_id": 959,
+  "commentable_type": "Forecast::Question",
+  "children_count": 0,
+  "parent_id": null,
+  "created_at": "2023-09-26T15:57:22.074Z",
+  "updated_at": "2023-09-26T15:57:22.074Z",
+  "net_votes_count": 0,
+  "anonymous": false,
+  "membership_username": "TheTank4",
+  "membership_avatar_url": "/assets/default_theme/v18/ident/default_avatars/level-1-1-b9c925ca8bbd1b06f41ec78eecb73e098a6f1dc741c688684307fa6d59917c69.png",
+  "commenter_id": 2264,
+  "commenter_type": "Ident::Membership",
+  "commentable_name": "question-name d43b5b6bbbe0",
+  "content": "comment\n 1",
+  "content_html": "\u003cdiv class=\"content\"\u003e\n  \n\u003cdiv class=\"raw_content\"\u003e\n  \u003cbr\u003ecomment\u003cbr\u003e 1\n\u003c/div\u003e\n\u003c/div\u003e",
+  "children": [
+    {
+      "id": 1196,
+      "commentable_id": 959,
+      "commentable_type": "Forecast::Question",
+      "children_count": 0,
+      "parent_id": 123,
+      "created_at": "2023-09-26T15:57:22.113Z",
+      "updated_at": "2023-09-26T15:57:22.113Z",
+      "net_votes_count": 0,
+      "anonymous": false,
+      "membership_username": "TheTank2",
+      "membership_avatar_url": "/assets/default_theme/v18/ident/default_avatars/level-1-1-b9c925ca8bbd1b06f41ec78eecb73e098a6f1dc741c688684307fa6d59917c69.png",
+      "commenter_id": 2265,
+      "commenter_type": "Ident::Membership",
+      "content": "And now his watch has ended.",
+      "content_html": "\u003cdiv class=\"content\"\u003e\n  \n\u003cdiv class=\"raw_content\"\u003e\n  And now his watch has ended.\n\u003c/div\u003e\n\u003c/div\u003e"
+    }
+  ]
+}
+```
+
+### HTTP Request
+
+`POST https://yoursite.cultivateforecasts.com/api/v1/comments`
+
+
+### Comment Parameters
+
+Parameter | Required? | Description
+--------- | --------- | -----------
+parent_id | No | The ID of another comment to which this is a reply.
+commentable_id | Yes | The ID of the commentable that this comment should be attached to. Most likely a question ID.
+commentable_type | Yes | The type of commentable that this comment should be attached to. Most likely `Forecast::Question`.
+comment.content | Yes | The text of the comment.
